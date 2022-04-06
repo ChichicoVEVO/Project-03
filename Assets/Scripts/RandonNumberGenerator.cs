@@ -4,32 +4,54 @@ using UnityEngine;
 
 public class RandonNumberGenerator : MonoBehaviour
 {
-    public float randomNum;
+    public float qualityRandomNum;
+    public float quanityRandomNum;
     private void Start()
+
     {
-        randomNum = Random.Range(0, 100);
+        quanityRandomNum = Random.Range(1, 6);
+        qualityRandomNum = Random.Range(0, 100);
     }
 
     private void Update()
     {
         if (Input.GetButtonDown("Jump"))
+            Debug.Log("You got " + quanityRandomNum + "guns");
         {
-            randomNum = Random.Range(1, 100);
-            Debug.Log("Random Number is " + randomNum);
-
-            if (randomNum <= 49)
+            for (int noLoot = 0; noLoot < quanityRandomNum; quanityRandomNum--)
             {
-                Debug.Log("You got a common");
-            }
+                qualityRandomNum = Random.Range(1, 100);
+                Debug.Log("Random Number is " + qualityRandomNum);
 
-            if (randomNum <= 69 && randomNum >= 50)
-            {
-                Debug.Log("You got a uncommon");
-            }
+                if (qualityRandomNum <= 30)
+                {
+                    Debug.Log("You got a nothing");
+                }
 
-            if (randomNum <= 79 && randomNum >= 70)
-            {
-                Debug.Log("You got a rare");
+                if (qualityRandomNum <= 70 && qualityRandomNum >= 31)
+                {
+                    Debug.Log("You got a uncommon");
+                }
+
+                if (qualityRandomNum <= 85 && qualityRandomNum >= 71)
+                {
+                    Debug.Log("You got a rare");
+                }
+
+                if (qualityRandomNum <= 94 && qualityRandomNum >= 86)
+                {
+                    Debug.Log("You got a ultra rare");
+                }
+
+                if (qualityRandomNum <= 99 && qualityRandomNum >= 95)
+                {
+                    Debug.Log("You got a legendary");
+                }
+
+                if (qualityRandomNum == 100)
+                {
+                    Debug.Log("ULTRA MEGA RARE LEGENDARY");
+                }
             }
         }
     }
