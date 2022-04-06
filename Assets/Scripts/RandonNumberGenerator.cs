@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class RandonNumberGenerator : MonoBehaviour
 {
-    public float qualityRandomNum;
-    public float quanityRandomNum;
+    int qualityRandomNum;
+    int quanityRandomNum;
+    [SerializeField] LootGenerator callCommonDrop;
+    [SerializeField] LootGenerator callUncommonDrop;
+    [SerializeField] LootGenerator callRareDrop;
+    [SerializeField] LootGenerator callUltraRareDrop;
+    [SerializeField] LootGenerator callLegendaryDrop;
+    [SerializeField] LootGenerator callUltraMegaRareLegendaryDrop;
     private void Start()
 
     {
@@ -23,34 +29,34 @@ public class RandonNumberGenerator : MonoBehaviour
                 qualityRandomNum = Random.Range(1, 100);
                 Debug.Log("Random Number is " + qualityRandomNum);
 
-                if (qualityRandomNum <= 30)
+                if (qualityRandomNum <= 30) 
                 {
-                    Debug.Log("You got a nothing");
+                    callCommonDrop.GetComponent<LootGenerator>().commonDrop();
                 }
 
-                if (qualityRandomNum <= 70 && qualityRandomNum >= 31)
+                if (qualityRandomNum <= 70 && qualityRandomNum >= 31)  
                 {
-                    Debug.Log("You got a uncommon");
+                    callUncommonDrop.GetComponent<LootGenerator>().uncommonDrop();
                 }
 
                 if (qualityRandomNum <= 85 && qualityRandomNum >= 71)
                 {
-                    Debug.Log("You got a rare");
+                    callRareDrop.GetComponent<LootGenerator>().rareDrop();
                 }
 
                 if (qualityRandomNum <= 94 && qualityRandomNum >= 86)
                 {
-                    Debug.Log("You got a ultra rare");
+                    callUltraRareDrop.GetComponent<LootGenerator>().ultraRareDrop();
                 }
 
                 if (qualityRandomNum <= 99 && qualityRandomNum >= 95)
                 {
-                    Debug.Log("You got a legendary");
+                    callLegendaryDrop.GetComponent<LootGenerator>().legendaryDrop();
                 }
 
                 if (qualityRandomNum == 100)
                 {
-                    Debug.Log("ULTRA MEGA RARE LEGENDARY");
+                    callUltraMegaRareLegendaryDrop.GetComponent<LootGenerator>().ultraMegaRareLegendaryDrop();
                 }
             }
         }
