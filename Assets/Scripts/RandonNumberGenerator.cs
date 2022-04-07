@@ -22,42 +22,46 @@ public class RandonNumberGenerator : MonoBehaviour
     private void Update()
     {
         if (Input.GetButtonDown("Jump"))
-            Debug.Log("You got " + quanityRandomNum + "guns");
         {
-            for (int noLoot = 0; noLoot < quanityRandomNum; quanityRandomNum--)
+            callLoot();
+        }
+    }
+
+    public void callLoot()
+    {
+        while (quanityRandomNum > 0)
+        {
+            quanityRandomNum--;
+            qualityRandomNum = Random.Range(1, 100);
+
+            if (qualityRandomNum <= 30)
             {
-                qualityRandomNum = Random.Range(1, 100);
-                Debug.Log("Random Number is " + qualityRandomNum);
+                callCommonDrop.GetComponent<LootGenerator>().commonDrop();
+            }
 
-                if (qualityRandomNum <= 30) 
-                {
-                    callCommonDrop.GetComponent<LootGenerator>().commonDrop();
-                }
+            if (qualityRandomNum <= 70 && qualityRandomNum >= 31)
+            {
+                callUncommonDrop.GetComponent<LootGenerator>().uncommonDrop();
+            }
 
-                if (qualityRandomNum <= 70 && qualityRandomNum >= 31)  
-                {
-                    callUncommonDrop.GetComponent<LootGenerator>().uncommonDrop();
-                }
+            if (qualityRandomNum <= 85 && qualityRandomNum >= 71)
+            {
+                callRareDrop.GetComponent<LootGenerator>().rareDrop();
+            }
 
-                if (qualityRandomNum <= 85 && qualityRandomNum >= 71)
-                {
-                    callRareDrop.GetComponent<LootGenerator>().rareDrop();
-                }
+            if (qualityRandomNum <= 94 && qualityRandomNum >= 86)
+            {
+                callUltraRareDrop.GetComponent<LootGenerator>().ultraRareDrop();
+            }
 
-                if (qualityRandomNum <= 94 && qualityRandomNum >= 86)
-                {
-                    callUltraRareDrop.GetComponent<LootGenerator>().ultraRareDrop();
-                }
+            if (qualityRandomNum <= 99 && qualityRandomNum >= 95)
+            {
+                callLegendaryDrop.GetComponent<LootGenerator>().legendaryDrop();
+            }
 
-                if (qualityRandomNum <= 99 && qualityRandomNum >= 95)
-                {
-                    callLegendaryDrop.GetComponent<LootGenerator>().legendaryDrop();
-                }
-
-                if (qualityRandomNum == 100)
-                {
-                    callUltraMegaRareLegendaryDrop.GetComponent<LootGenerator>().ultraMegaRareLegendaryDrop();
-                }
+            if (qualityRandomNum == 100)
+            {
+                callUltraMegaRareLegendaryDrop.GetComponent<LootGenerator>().ultraMegaRareLegendaryDrop();
             }
         }
     }
