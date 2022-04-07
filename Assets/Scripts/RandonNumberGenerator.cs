@@ -12,19 +12,12 @@ public class RandonNumberGenerator : MonoBehaviour
     [SerializeField] LootGenerator callUltraRareDrop;
     [SerializeField] LootGenerator callLegendaryDrop;
     [SerializeField] LootGenerator callUltraMegaRareLegendaryDrop;
+
     private void Start()
 
     {
         quanityRandomNum = Random.Range(1, 6);
         qualityRandomNum = Random.Range(0, 100);
-    }
-
-    private void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            callLoot();
-        }
     }
 
     public void callLoot()
