@@ -11,6 +11,7 @@ public class LootGenerator : MonoBehaviour
     [SerializeField] GameObject legendaryLoot;
     [SerializeField] GameObject ultraMegaRareLegendaryLoot;
 
+
     public void commonDrop()
     {
         Debug.Log("You got a common");
