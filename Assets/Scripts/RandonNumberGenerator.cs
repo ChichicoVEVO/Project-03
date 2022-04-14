@@ -18,13 +18,11 @@ public class RandonNumberGenerator : MonoBehaviour
     {
         quanityRandomNum = Random.Range(1, 6);
         qualityRandomNum = Random.Range(0, 100);
-
-        Debug.Log("You'll get " +quanityRandomNum+ " number of guns");
-        Debug.Log("You'll get " +qualityRandomNum+ " quality of loot");
     }
 
     public void callLoot()
     {
+        
         while (quanityRandomNum > 0)
         {
             quanityRandomNum--;

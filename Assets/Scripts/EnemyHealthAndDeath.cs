@@ -18,12 +18,12 @@ public class EnemyHealthAndDeath : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        Debug.Log("Enemy now has " + health + "health");
         health -= damageAmount;
     }
 
     private void LootMosterDeath()
     {
+
         callLootDrops.GetComponent<RandonNumberGenerator>().callLoot();
     }
 }
