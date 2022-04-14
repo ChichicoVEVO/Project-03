@@ -28,7 +28,7 @@ public class RandonNumberGenerator : MonoBehaviour
         while (quanityRandomNum > 0)
         {
             quanityRandomNum--;
-            qualityRandomNum = Random.Range(1, 100);
+            qualityRandomNum = Random.Range(0, 100);
 
             if (qualityRandomNum <= 30)
             {
