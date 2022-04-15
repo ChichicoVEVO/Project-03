@@ -12,18 +12,13 @@ public class EnemyHealthAndDeath : MonoBehaviour
     {
         if (health == 0)
         {
-            LootMosterDeath();
+            Destroy(gameObject);
+            callLootDrops.GetComponent<RandonNumberGenerator>().callLoot();
         }
     }
 
     public void TakeDamage(int damageAmount)
     {
         health -= damageAmount;
-    }
-
-    private void LootMosterDeath()
-    {
-
-        callLootDrops.GetComponent<RandonNumberGenerator>().callLoot();
     }
 }
