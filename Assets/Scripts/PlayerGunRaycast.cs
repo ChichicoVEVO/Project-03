@@ -9,13 +9,13 @@ public class PlayerGunRaycast : MonoBehaviour
     [SerializeField] LayerMask _hitLayer;
     [SerializeField] int weaponDamage = 10;
     [SerializeField] EnemyHealthAndDeath callTakeDamage;
-    //[SerializeField] AudioSource gunShotSFX;
+    [SerializeField] AudioSource gunShotSFX;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //gunShotSFX.Play();
+            gunShotSFX.Play();
             DebugRay();
             ShootRay();
         }
