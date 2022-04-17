@@ -13,16 +13,23 @@ public class RandonNumberGenerator : MonoBehaviour
     [SerializeField] LootGenerator callLegendaryDrop;
     [SerializeField] LootGenerator callUltraMegaRareLegendaryDrop;
 
-    private void Start()
-
+    private void Update()
     {
-        quanityRandomNum = Random.Range(1, 6);
-        qualityRandomNum = Random.Range(0, 100);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            callCommonDrop.GetComponent<LootGenerator>().commonDrop();
+            callUncommonDrop.GetComponent<LootGenerator>().uncommonDrop();
+            callRareDrop.GetComponent<LootGenerator>().rareDrop();
+            callUltraRareDrop.GetComponent<LootGenerator>().ultraRareDrop();
+            callLegendaryDrop.GetComponent<LootGenerator>().legendaryDrop();
+            callUltraMegaRareLegendaryDrop.GetComponent<LootGenerator>().ultraMegaRareLegendaryDrop();
+        }
     }
 
     public void callLoot()
     {
-        
+        quanityRandomNum = Random.Range(1, 6);
+
         while (quanityRandomNum > 0)
         {
             quanityRandomNum--;
@@ -57,6 +64,8 @@ public class RandonNumberGenerator : MonoBehaviour
             {
                 callUltraMegaRareLegendaryDrop.GetComponent<LootGenerator>().ultraMegaRareLegendaryDrop();
             }
+
+            
         }
     }
 }

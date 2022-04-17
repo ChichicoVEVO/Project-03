@@ -11,7 +11,6 @@ public class LootGenerator : MonoBehaviour
     [SerializeField] GameObject legendaryLoot;
     [SerializeField] GameObject ultraMegaRareLegendaryLoot;
 
-
     [SerializeField] CommonDropSoundAndParticleEffects playCommonDropEffects;
     [SerializeField] UncommonDropSoundAndParticleEffects playUncommonDropEffects;
     [SerializeField] RareDropSoundAndParticleEffects playRareDropEffects;
@@ -19,9 +18,7 @@ public class LootGenerator : MonoBehaviour
     [SerializeField] LegendaryDropSoundAndParticleEffects playLegendaryDropEffects;
     [SerializeField] UltraMegaRareLegendaryDropSoundAndParticleEffects playUltraMegaRareLegendaryDropEffects;
 
-    [SerializeField] GameObject LootMonster;
-
-    
+    [SerializeField] GameObject LootMonster;    
 
 
     public void commonDrop()

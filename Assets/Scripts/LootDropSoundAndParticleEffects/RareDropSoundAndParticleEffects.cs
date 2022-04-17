@@ -11,6 +11,5 @@ public class RareDropSoundAndParticleEffects : MonoBehaviour
     {
         particle.Play();
         dropSound.Play();
-        Debug.Log("pkye check");
     }
 }
