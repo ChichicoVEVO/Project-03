@@ -23,38 +23,38 @@ public class LootGenerator : MonoBehaviour
 
     public void commonDrop()
     {
-        Instantiate(commonLoot, LootMonster.transform);
-        playCommonDropEffects.GetComponent<CommonDropSoundAndParticleEffects>().dropCommonLootEffect();
+        GameObject commonGun = Instantiate(commonLoot, LootMonster.transform);
+        commonGun.GetComponent<CommonDropSoundAndParticleEffects>().dropCommonLootEffect();
     }
 
     public void uncommonDrop()
     {
-        Instantiate(uncommonLoot, LootMonster.transform);
-        playUncommonDropEffects.GetComponent<UncommonDropSoundAndParticleEffects>().dropUncommonLootEffect();
+        GameObject uncommonGun = Instantiate(uncommonLoot, LootMonster.transform);
+        uncommonGun.GetComponent<UncommonDropSoundAndParticleEffects>().dropUncommonLootEffect();
     }
 
     public void rareDrop()
     {
-        Instantiate(rareLoot, LootMonster.transform);
-        playRareDropEffects.GetComponent<RareDropSoundAndParticleEffects>().dropRareLootEffect();
+        GameObject rareGun = Instantiate(rareLoot, LootMonster.transform);
+        rareGun.GetComponent<RareDropSoundAndParticleEffects>().dropRareLootEffect();
     }
 
     public void  ultraRareDrop()
     {
-        Instantiate(ultraRareLoot, LootMonster.transform);
-        playUltraRareDropEffects.GetComponent<UltraRareDropSoundAndParticleEffects>().dropUltraRareLootEffect();
+        GameObject ultraRareGun = Instantiate(ultraRareLoot, LootMonster.transform);
+        ultraRareGun.GetComponent<UltraRareDropSoundAndParticleEffects>().dropUltraRareLootEffect();
     }
 
     public void legendaryDrop()
     {
-        Instantiate(legendaryLoot, LootMonster.transform);
-        playLegendaryDropEffects.GetComponent<LegendaryDropSoundAndParticleEffects>().dropLegendaryLootEffect();
+        GameObject legendaryGun = Instantiate(legendaryLoot, LootMonster.transform);
+        legendaryGun.GetComponent<LegendaryDropSoundAndParticleEffects>().dropLegendaryLootEffect();
     }
 
     public void ultraMegaRareLegendaryDrop()
     {
-        Instantiate(ultraMegaRareLegendaryLoot, LootMonster.transform);
-        playUltraMegaRareLegendaryDropEffects.GetComponent<UltraMegaRareLegendaryDropSoundAndParticleEffects>().dropUltraMegaRareLegendaryLootEffect();
+        GameObject ultraMegaRareLegendary = Instantiate(ultraMegaRareLegendaryLoot, LootMonster.transform);
+        ultraMegaRareLegendary.GetComponent<UltraMegaRareLegendaryDropSoundAndParticleEffects>().dropUltraMegaRareLegendaryLootEffect();
     }
 
 }

@@ -13,6 +13,11 @@ public class RandonNumberGenerator : MonoBehaviour
     [SerializeField] LootGenerator callLegendaryDrop;
     [SerializeField] LootGenerator callUltraMegaRareLegendaryDrop;
 
+    private void Start()
+    {
+        quanityRandomNum = Random.Range(1, 6);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -28,8 +33,6 @@ public class RandonNumberGenerator : MonoBehaviour
 
     public void callLoot()
     {
-        quanityRandomNum = Random.Range(1, 6);
-
         while (quanityRandomNum > 0)
         {
             quanityRandomNum--;

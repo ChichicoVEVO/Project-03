@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyHealthAndDeath : MonoBehaviour
 {
     int health = 100;
+    [SerializeField] AudioSource lootMonsterHurtSFX;
     [SerializeField] RandonNumberGenerator callLootDrops;
-
 
     private void Update()
     {
@@ -19,6 +19,7 @@ public class EnemyHealthAndDeath : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        lootMonsterHurtSFX.Play();
         health -= damageAmount;
     }
 }

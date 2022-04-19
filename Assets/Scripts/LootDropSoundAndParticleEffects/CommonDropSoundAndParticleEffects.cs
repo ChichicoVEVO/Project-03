@@ -12,6 +12,5 @@ public class CommonDropSoundAndParticleEffects : MonoBehaviour
     {
         particle.Play();
         dropSound.Play();
-        Debug.Log("pkye check");
     }
 }

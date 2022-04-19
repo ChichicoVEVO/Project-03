@@ -1,23 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerGunRaycast : MonoBehaviour
 {
     [SerializeField] float rayDistance = 60f;
-    [SerializeField] float debugRayDuration = 2f;
     [SerializeField] LayerMask _hitLayer;
     [SerializeField] int weaponDamage = 10;
     [SerializeField] EnemyHealthAndDeath callTakeDamage;
-    [SerializeField] AudioSource gunShotSFX;
+    AudioSource gunShotSFX;
+
+    private void Awake()
+    {
+        gunShotSFX = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            gunShotSFX.Play();
-            DebugRay();
+            gunShotSFX.Play(0);
+            Debug.Log("Shpopt");
             ShootRay();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
 
@@ -31,15 +46,5 @@ public class PlayerGunRaycast : MonoBehaviour
             EnemyHealthAndDeath enemyShooter = hitInfo.transform.gameObject.GetComponent<EnemyHealthAndDeath>();
             enemyShooter?.TakeDamage(weaponDamage);
         }
-        else
-        {
-            Debug.Log("Miss");
-        }
-    }
-
-    private void DebugRay()
-    {
-        Vector3 endPoint = transform.forward * rayDistance;
-        Debug.DrawRay(transform.position, endPoint, Color.red, debugRayDuration);
     }
 }
